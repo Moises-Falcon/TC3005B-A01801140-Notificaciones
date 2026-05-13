@@ -3,7 +3,7 @@ import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose";
 @modelOptions({
     schemaOptions: {
         collection: 'notificaciones',
-        timestamps: true
+        timestamps: false
     }
 })
 export class Notificacion {
