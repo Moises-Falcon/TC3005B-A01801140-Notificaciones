@@ -19,7 +19,10 @@ export default class NotificacionController extends AbstractController {
 
     private async getListarNotificaciones(req: Request, res: Response): Promise<void> {
         try {
-            const notificaciones = await NotificacionModel.find().sort({ createdAt: -1 });
+            const notificaciones = await NotificacionModel.find(
+                {},
+                { _id: 0, __v: 0, createdAt: 0, updatedAt: 0 }
+            ).sort({ createdAt: -1 });
             res.status(200).json(notificaciones);
         } catch (err) {
             console.log(err);
