@@ -7,8 +7,11 @@ class MongoConnection{
 
     constructor(){
         //mongodb://username:password@host:port/database?authSource=admin"
-        this.mongoUri=
-        `mongodb://${DB_NOSQL_USER}:${DB_NOSQL_PASS}@${DB_NOSQL_HOST}:27017/${DB_NOSQL_NAME}?authSource=admin`
+        const auth = DB_NOSQL_USER && DB_NOSQL_PASS
+            ? `${DB_NOSQL_USER}:${DB_NOSQL_PASS}@`
+            : '';
+        const authSource = DB_NOSQL_USER && DB_NOSQL_PASS ? '?authSource=admin' : '';
+        this.mongoUri = `mongodb://${auth}${DB_NOSQL_HOST}:27017/${DB_NOSQL_NAME}${authSource}`;
         console.log(this.mongoUri);
     }
     public async connect():Promise<void>{
