@@ -4,7 +4,6 @@ import express from 'express';
 import cors from 'cors';
 
 //Importar controllers
-import ProyectoController from "./controllers/ProyectoController";
 import ClienteController from "./controllers/ClienteController";
 import NotificacionController from "./controllers/NotificacionController";
  //Integrar el proyecto
@@ -18,7 +17,6 @@ import NotificacionController from "./controllers/NotificacionController";
         cors()
     ],
     controllers:[
-        ProyectoController.instance,
         ClienteController.instance,
         NotificacionController.instance
     ]
